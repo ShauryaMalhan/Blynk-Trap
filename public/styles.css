@@ -1,0 +1,143 @@
+/* Apply a wooden theme to the game UI */
+
+
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);  /*Adjusted the background color to black with transparency */
+    border-radius: 10px; /* Rounded corners for a wooden look */
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #090501; /* Brown font color */
+    background-color: rgba(255, 255, 255, 0.7); /* Stylish white background with transparency */
+    padding: 10px 20px; /* Add padding for style */
+    border-radius: 5px; /* Rounded corners for the white background */
+    display: inline-block; /* Make the background cover only the text content */
+}
+
+.start-button {
+    text-decoration: none;
+    background-color: #4caf50; /* Green button background */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.start-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.score {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #8B4513; /* Brown font color */
+}
+
+.spider {
+    width: 150px; /* Increase the spider's width */
+    height: 150px; /* Increase the spider's height */
+    position: absolute;
+    animation: moveSpider 80s infinite linear; /* Slow down the spider's movement */
+}
+
+@keyframes moveSpider {
+    0% {
+        transform: translate(-100px, 0); /* Start from the left side */
+    }
+    25% {
+        transform: translate(100px, 400px); /* Move diagonally */
+    }
+    50% {
+        transform: translate(700px, 0); /* Move to the right side */
+    }
+    75% {
+        transform: translate(200px, -200px); /* Move diagonally */
+    }
+    100% {
+        transform: translate(-600px, 0); /* Return to the left side */
+    }
+}
+
+
+/* game webpage */
+/* Your existing CSS styles */
+/* body {
+    font-family: "Lucida Console";
+    background-image: url('spiderweb_background.jpg');
+    color: #8B4513;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+} */
+
+.scoreboard {
+    background-color: #8B4513; /* Dark brown background */
+    color: #fff; /* White font color */
+    font-weight: bold; /* Bold font */
+    padding: 10px; /* Padding for the scoreboard */
+    text-align: center;
+}
+
+.score {
+    font-size: 24px;
+    color: #fff;
+}
+
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.cursor_hammer_0 {
+    cursor: url('hammer_0.png'), auto;
+}
+
+.cursor_hammer_45{
+    cursor: url('hammer_45.png'), auto;
+}
+
+
+.cursor {
+    width: 250px; 
+    height: 250px; 
+    position: fixed;
+    background-image: url('hammer_0.png');
+    background-size: cover;
+    pointer-events: none;
+}
+
+.spiritual {
+    cursor: none;
+}
+
+/* Adjusted the spider size */
+.spider {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url('spider.gif');
+    background-size: cover;
+}
+
+

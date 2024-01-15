@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: "Lucida Console";
+            background-image: url('/home_background.jpg');
+            color: #8B4513;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-screen">
+        <h1>Welcome to BlinkTrap Game</h1>
+        <form action="">
+            <a href="game.html" class="start-button" id="new" onclick="startGame()">Start Game</a>
+        </form>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="misses">Misses: <span id="misses">0</span></div>
+        <img src="/spider.gif" alt="Spider" class="spider">
+    </div>
+
+    <script>
+        function startGame() {
+            // Make an AJAX request to start the Python script
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/start_game", true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

@@ -23,19 +23,24 @@
 <body>
     <div class="game-screen">
         <h1>Welcome to BlinkTrap Game</h1>
-        <form action="">
-            <a href="game.html" class="start-button" id="new" onclick="startGame()">Start Game</a>
-        </form>
+        <a href="/start_game" class="start-button" id="new" onclick="startGame()">Start Game</a>
         <div class="score">Score: <span id="score">0</span></div>
         <div class="misses">Misses: <span id="misses">0</span></div>
         <img src="/spider.gif" alt="Spider" class="spider">
     </div>
-
     <script>
         function startGame() {
-            // Make an AJAX request to start the Python script
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "/start_game", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log('Game started successfully.');
+                    } else {
+                        console.error('Failed to start the game:', xhr.statusText);
+                    }
+                }
+            };
             xhr.send();
         }
     </script>

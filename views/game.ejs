@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: "Lucida Console";
+            background-image: url('/home_background.jpg');
+            color: #8B4513;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+
+        .cursor_hammer_45 {
+            cursor: url('/hammer_45.png'), auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="misses">Misses: <span id="misses">0</span></div>
+    </div>
+    <div class="cursor"></div>
+
+    <div class="spiders-container"></div>
+
+    <script >
+        let missCount = 0;
+        let score = 0;
+
+    function createSpider() {
+            const newSpider = document.createElement('div');
+            newSpider.classList.add('spider');
+
+            const maxX = window.innerWidth - 150;
+            const maxY = window.innerHeight - 150;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            newSpider.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+            newSpider.addEventListener('click', (event) => {
+                event.stopPropagation(); 
+                newSpider.remove();
+                updateScore();
+            });
+            spidersContainer.appendChild(newSpider);
+        }
+
+        document.addEventListener('click', () => {
+            updateMiss();
+        });
+
+        function updateScore() {
+            score += 1;
+            const scoreElement = document.getElementById('score');
+            scoreElement.textContent = score;
+
+            if (score === 10) {
+                showResultDialog('You Won!');
+            }
+        }
+
+        function updateMiss() {
+            missCount += 1;
+            const missElement = document.getElementById('misses');
+            missElement.textContent = missCount;
+
+            if (missCount === 5) {
+                showResultDialog('You Lost!');
+            }
+        }
+
+        function showResultDialog(message) {
+            alert(message);
+            resetGame();
+        }
+
+        function resetGame() {
+            missCount = 0;
+            score = 0;
+            const scoreElement = document.getElementById('score');
+            scoreElement.textContent = '0';
+
+            const missElement = document.getElementById('misses');
+            missElement.textContent = '0';
+
+            spidersContainer.innerHTML = '';
+
+            createSpider();
+        }
+        const spidersContainer = document.querySelector('.spiders-container');
+
+        createSpider();
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX - cursor.clientWidth / 2}px`;
+            cursor.style.top = `${e.clientY - cursor.clientHeight / 2}px`;
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.backgroundImage = "url('/hammer_45.png')";
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.backgroundImage = "url('/hammer_0.png')";
+        });
+    </script>
+</body>
+</html>

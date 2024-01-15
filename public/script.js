@@ -81,11 +81,11 @@ document.addEventListener('mousemove', (e) => {
 });
 
 document.addEventListener('mousedown', () => {
-    cursor.style.backgroundImage = 'url("{{ url_for("static", filename="hammer_45.png") }}")';
+    cursor.style.backgroundImage = 'hammer_45.png';
 });
 
 document.addEventListener('mouseup', () => {
-    cursor.style.backgroundImage = 'url("{{ url_for("static", filename="hammer_0.png") }}")';
+    cursor.style.backgroundImage = 'hammer_0.png';
 });
 
 // ... (rest of your existing code)

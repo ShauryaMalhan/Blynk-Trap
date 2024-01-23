@@ -21,3 +21,13 @@ This project presents an innovative web-based game designed specifically to addr
   ```
   node index.js
   ```
+<h2>Contributing: </h2>
+  We welcome contributions from the community to improve and enhance the WebApp. If you would like to contribute, please follow these steps:
+
+  Fork the repository.
+  1. Create a new branch for your feature or bug fix.
+  2. Make your changes and commit them.
+  3. Push your changes to your fork.
+  4. Create a pull request to the main repository.
+     
+  Our team will review your pull request, and if accepted, your changes will be incorporated into the WebApp.

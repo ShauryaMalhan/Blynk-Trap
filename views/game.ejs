@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spider Game</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
         body {
@@ -30,14 +30,13 @@
         <div class="misses">Misses: <span id="misses">0</span></div>
     </div>
     <div class="cursor"></div>
-
     <div class="spiders-container"></div>
 
-    <script >
+    <script>
         let missCount = 0;
         let score = 0;
 
-    function createSpider() {
+        function createSpider() {
             const newSpider = document.createElement('div');
             newSpider.classList.add('spider');
 
@@ -50,7 +49,7 @@
             newSpider.style.transform = `translate(${randomX}px, ${randomY}px)`;
 
             newSpider.addEventListener('click', (event) => {
-                event.stopPropagation(); 
+                event.stopPropagation();
                 newSpider.remove();
                 updateScore();
             });
@@ -98,10 +97,26 @@
             spidersContainer.innerHTML = '';
 
             createSpider();
+            scheduleSpiderCreation();
         }
+
+        function scheduleSpiderCreation() {
+            // Generate a random delay between 1000 and 5000 milliseconds (1 to 5 seconds)
+            const randomDelay = Math.floor(Math.random() * (5000 - 1000 + 1) + 1000);
+
+            // Schedule the next spider creation after the random delay
+            setTimeout(() => {
+                createSpider();
+                scheduleSpiderCreation(); // Schedule the next spider creation after this one
+            }, randomDelay);
+        }
+
         const spidersContainer = document.querySelector('.spiders-container');
 
+        // Start the initial spider creation and scheduling
         createSpider();
+        scheduleSpiderCreation();
+
         const cursor = document.querySelector('.cursor');
 
         document.addEventListener('mousemove', (e) => {

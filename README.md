@@ -21,6 +21,19 @@ This project presents an innovative web-based game designed specifically to addr
   ```
   node index.js
   ```
+
+The application will be accessible in your web browser at http://localhost:3000. You can now begin using the app to play the game.
+
+![home](images/home.png)
+
+1. Now after you are on the home page you can start the game by just clicking on start and begin the experience of playing the game just by eyes. All you need to do id kill the spiders by blinking your eyes and score 10 points but if you miss 5 times you will loose the game.
+
+![eye](images/eye.png)
+
+2. This application also offers User Experience which helps user see their emotions while playing the game.
+
+![emotion](images/neutral.png)
+
 <h2>Contributing: </h2>
   We welcome contributions from the community to improve and enhance the WebApp. If you would like to contribute, please follow these steps:
 
